@@ -1,0 +1,30 @@
+
+<% if user_signed_in? %>
+  <%# <p style="color: green"><%= notice</p> %> 
+
+  <% content_for :title, "Friends" %>
+
+  <%# <h1>Friend List</h1> %>
+
+  <div id="friends">
+    <% @friends.each do |friend| %>
+      <% if friend.user == current_user %>
+        <%= render friend %>
+      
+      <% end %>
+    <% end %>
+  </div>
+
+
+  <%= link_to "New friend", new_friend_path, class:"btn btn-secondary" %>
+
+  <%# 为了把样式给弄过来 %>
+  <%# <button type="button" class="btn btn-secondary">Secondary</button> %>
+<% else %>
+  <h1>Hello World!!!</h1>
+  <br/>
+  <br/>
+  <div>
+    <button>这是一个按钮</button>
+  </div>
+<%end%>
